@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'appareil.dart';
@@ -20,10 +22,12 @@ class _Main_ViewState extends State<Main_View> {
         builder: (context, AsyncSnapshot snapshot)  {
           if(snapshot.hasData && !snapshot.hasError ){
             //Map<dynamic, dynamic> map = snapshot.data.snapshot.value;
-            //Map<String, dynamic>.from(snapshot.value as Map);
-            var _appareil = Appareil.fromJson(snapshot.data.snapshot.value['json']);
+            //Map<String, dynamic> appareil_Map = jsonDecode(snapshot.data.snapshot.value.toString());
+            var _appareil = Appareil.fromJson(snapshot.data.snapshot.value);
+
             print(snapshot.data.snapshot.value.toString());
-           print('Appareil: ${_appareil.P} et ${_appareil.statut}');
+            print(_appareil.P);
+
 
           }else
             {

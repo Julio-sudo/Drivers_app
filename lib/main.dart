@@ -28,13 +28,13 @@ class MyApp extends StatelessWidget {
   void getData() async{
     var snapshot = await databaseReference.child('lampe/statut').get();
     if (snapshot.exists){
-      if(snapshot.value == true)
+      if(snapshot.value == 1)
       {
-        await databaseReference.child('lampe').update({"statut" : false});
+        await databaseReference.child('lampe').update({"statut" : 0});
 
-      }else if (snapshot.value == false)
+      }else if (snapshot.value == 0)
       {
-        await databaseReference.child('lampe').update({"statut" : true});
+        await databaseReference.child('lampe').update({"statut" : 1});
       }
     }else
     {
@@ -74,6 +74,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
