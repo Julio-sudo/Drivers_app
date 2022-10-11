@@ -31,7 +31,6 @@ class MyApp extends StatelessWidget {
       if(snapshot.value == 1)
       {
         await databaseReference.child('lampe').update({"statut" : 0});
-
       }else if (snapshot.value == 0)
       {
         await databaseReference.child('lampe').update({"statut" : 1});

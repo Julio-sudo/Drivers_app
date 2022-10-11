@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
 part 'appareil.g.dart';
 
@@ -7,7 +7,7 @@ class Appareil{
   final double P;
 
   @JsonKey(defaultValue: false)
-  final bool statut;
+   final bool statut;
 
   Appareil({required this.P, required this.statut});
 
